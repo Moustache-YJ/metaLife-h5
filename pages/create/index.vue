@@ -7,7 +7,7 @@
 		<view class="main">
 			<view class="title">
 				<view class="">
-					Upload picture of yo
+					Upload picture of your NFT
 				</view>
 				<image class="icon" src="../../static/*.png" mode=""></image>
 			</view>
@@ -101,6 +101,8 @@
 				})
 			},
 			handleCreate() {
+				let reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+				let timestamp = new Date().getTime()
 				if (!this.photo) {
 					this.$refs.uToast.show({
 						message: 'please upload picture'
@@ -116,6 +118,18 @@
 				if (!this.email) {
 					this.$refs.uToast.show({
 						message: 'email cannot be empty'
+					})
+					return
+				}					
+				if(!reg.test(this.email)){
+					this.$refs.uToast.show({
+						message: 'email error'
+					})
+					return
+				}
+				if(timestamp > 1657727999000){
+					this.$refs.uToast.show({
+						message: 'Disabled after the 13th'
 					})
 					return
 				}
