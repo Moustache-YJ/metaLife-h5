@@ -12,9 +12,9 @@
 				<image class="icon" src="../../static/1.png" mode=""></image>
 			</view>
 			<u-upload @afterRead="afterRead">
-				<view class="upload-box" :style="`width:${uploadWidth}px`">
-					<image :src="photoShow" mode="widthFix" v-if="photo" :style="`width:${uploadWidth}px;height: 100%;`"></image>
-					<image v-else src="../../static/plus.png" mode="widthFix" style="width: 30px;height: 30px;"></image>
+				<image class="upload-image"  :src="photoShow" mode="aspectFill" v-if="photo" :style="`width:${uploadWidth}px;`"></image>
+				<view v-else class="upload-box" :style="`width:${uploadWidth}px`">
+					<image src="../../static/plus.png" mode="widthFix" style="width: 30px;height: 30px;"></image>
 				</view>
 			</u-upload>
 			<view class="title">
@@ -235,9 +235,14 @@
 
 	.tip {
 		font-size: 28rpx;
-		color: #8E8E92
+		color: #8E8E92;
+		margin-top: 30rpx;
 	}
-
+    .upload-image{
+		border-radius: 24rpx;
+		height: 250px;
+		margin-top: 30rpx;
+	}
 	.upload-box {
 		border-radius: 24rpx;
 		height: 250px;
