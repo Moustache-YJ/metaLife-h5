@@ -9,25 +9,26 @@
 				<view class="">
 					Upload picture of your NFT
 				</view>
-				<image class="icon" src="../../static/*.png" mode=""></image>
+				<image class="icon" src="../../static/1.png" mode=""></image>
 			</view>
 			<u-upload @afterRead="afterRead">
 				<view class="upload-box" :style="`width:${uploadWidth}px`">
-					<image src="../../static/plus.png" mode="widthFix" style="width: 30px;height: 30px;"></image>
+					<image :src="photoShow" mode="" v-if="photo" style="width: 100%;height: 100%;"></image>
+					<image v-else src="../../static/plus.png" mode="widthFix" style="width: 30px;height: 30px;"></image>
 				</view>
 			</u-upload>
 			<view class="title">
 				<view class="">
 					NAME
 				</view>
-				<image class="icon" src="../../static/*.png" mode=""></image>
+				<image class="icon" src="../../static/1.png" mode=""></image>
 			</view>
 			<input class="creat-input" placeholder="NAME" type="text" v-model="name" />
 			<view class="title">
 				<view class="">
 					EMAIL
 				</view>
-				<image class="icon" src="../../static/*.png" mode=""></image>
+				<image class="icon" src="../../static/1.png" mode=""></image>
 			</view>
 			<view class="tip">
 				For us to work with you on sending your NFT to your wallet
@@ -60,7 +61,13 @@
 				name: "",
 				email: "",
 				photo: "",
-				wallet: ""
+				wallet: "",
+				fileList: []
+			}
+		},
+		computed: {
+			photoShow() {
+				return `http://127.0.0.1:5050/img/${this.photo}`
 			}
 		},
 		onLoad() {
@@ -73,7 +80,7 @@
 		methods: {
 			handleBack() {
 				uni.navigateBack({
-					delta:1
+					delta: 1
 				})
 			},
 			afterRead({
@@ -84,9 +91,9 @@
 					filePath: file.url,
 					name: 'file',
 					success: (res) => {
-						const response = res.data
+						const response = JSON.parse(res.data)
 						if (response.success) {
-							this.photo = msg
+							this.photo = response.msg
 						} else {
 							this.$refs.uToast.show({
 								message: response.msg
@@ -94,6 +101,7 @@
 						}
 					},
 					fail: (err) => {
+						conosle.log(err)
 						this.$refs.uToast.show({
 							message: 'picture upload failed'
 						})
@@ -101,7 +109,7 @@
 				})
 			},
 			handleCreate() {
-				let reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+				let reg = /[a-zA-Z0-9]+([-_.][A-Za-zd]+)*@([a-zA-Z0-9]+[-.])+[A-Za-zd]{2,5}$/
 				let timestamp = new Date().getTime()
 				if (!this.photo) {
 					this.$refs.uToast.show({
@@ -120,14 +128,15 @@
 						message: 'email cannot be empty'
 					})
 					return
-				}					
-				if(!reg.test(this.email)){
+				}
+				console.log(this.email)
+				if (!reg.test(this.email)) {
 					this.$refs.uToast.show({
 						message: 'email error'
 					})
 					return
 				}
-				if(timestamp > 1657727999000){
+				if (timestamp > 1657727999000) {
 					this.$refs.uToast.show({
 						message: 'Disabled after the 13th'
 					})

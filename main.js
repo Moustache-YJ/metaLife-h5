@@ -7,7 +7,7 @@ Vue.config.productionTip = false
 Vue.use(uView)
 
 // 请求api
-Vue.prototype.$BASE_URL = 'https://gateway.pinata.cloud/ipfs/'
+Vue.prototype.$BASE_URL = 'http://54.254.82.51:5050'
 
 App.mpType = 'app'
 const app = new Vue({
