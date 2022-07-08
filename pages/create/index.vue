@@ -13,7 +13,7 @@
 			</view>
 			<u-upload @afterRead="afterRead">
 				<view class="upload-box" :style="`width:${uploadWidth}px`">
-					<image :src="photoShow" mode="" v-if="photo" style="width: 100%;height: 100%;"></image>
+					<image :src="photoShow" mode="widthFix" v-if="photo" :style="`width:${uploadWidth}px;height: 100%;`"></image>
 					<image v-else src="../../static/plus.png" mode="widthFix" style="width: 30px;height: 30px;"></image>
 				</view>
 			</u-upload>
@@ -67,7 +67,7 @@
 		},
 		computed: {
 			photoShow() {
-				return `http://54.254.82.51/img/${this.photo}`
+				return `http://54.254.82.51:5050/img/${this.photo}`
 			}
 		},
 		onLoad() {
@@ -151,6 +151,7 @@
 				axios({
 					method: 'post',
 					url: `${this.$BASE_URL}/create`,
+					withCredentials:true,
 					data
 				}).then(res => {
 					const response = res.data
