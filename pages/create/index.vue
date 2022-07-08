@@ -19,14 +19,14 @@
 			</u-upload>
 			<view class="title">
 				<view class="">
-					NAME
+					Name
 				</view>
 				<image class="icon" src="../../static/1.png" mode=""></image>
 			</view>
 			<input class="creat-input" placeholder="NAME" type="text" v-model="name" />
 			<view class="title">
 				<view class="">
-					EMAIL
+					Email
 				</view>
 				<image class="icon" src="../../static/1.png" mode=""></image>
 			</view>
@@ -36,7 +36,7 @@
 			<input class="creat-input" placeholder="EMAIL" type="text" v-model="email" />
 			<view class="title">
 				<view class="">
-					Wallet Address <text class="tip">(optional)</text>
+					Wallet Address <text class="tip" style="margin-left: 10px;">(optional)</text>
 				</view>
 			</view>
 			<view class="tip">
@@ -67,7 +67,7 @@
 		},
 		computed: {
 			photoShow() {
-				return `http://127.0.0.1:5050/img/${this.photo}`
+				return `http://54.254.82.51/img/${this.photo}`
 			}
 		},
 		onLoad() {
@@ -220,7 +220,7 @@
 	.title {
 		display: flex;
 		flex-direction: row;
-		align-items: baseline;
+		align-items: flex-start;
 		font-weight: bold;
 		font-size: 32rpx;
 		margin-top: 40rpx;
@@ -238,6 +238,7 @@
 	}
 
 	.upload-box {
+		border-radius: 24rpx;
 		height: 250px;
 		display: flex;
 		flex-direction: row;

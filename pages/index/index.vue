@@ -23,12 +23,12 @@
 			</view>
 		</view>
 		<view class="btn" @click="handleStart">
-			Start creating my NF
+			Start creating my NFT
 		</view>
 		<view class="ok" style="">
 			Join our Community to enroll in Beta Test NOW !!!
 		</view>
-		<uni-link style="color:#29DAD7;font-size:18px;margin-top: 20rpx;" href="discord.gg/PRzkKXfhp" text="">discord.gg/PRzkKXfhp</uni-link>
+		<uni-link style="color:#29DAD7;font-size:18px;margin-top: 20rpx;" href="http://baidu.com" text="">discord.gg/4smYK9yeHs</uni-link>
 	</view>
 </template>
 
