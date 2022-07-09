@@ -3,8 +3,8 @@
 		<image class="top-image" src="../../static/峰会@2x.png" mode=""></image>
 		<view class="lap"></view>
 		<view class="flex-col" style="margin-top: 20px;">
-			<view class="">7.14 9:00 <text class="c-dad7">AM</text> - 7.14 9:00<text class="c-dad7">AM</text></view>
-			<view class="">滨海湾金沙会展中心</view>
+			<view class="">7.14 9:00 <text class="c-dad7">AM</text> - 7.14 5:00<text class="c-dad7">PM</text></view>
+			<view class="" style="margin-top:5px">滨海湾金沙会展中心</view>
 		</view>
 		<view class="flex-col info-name">
 			<view class="">Commemorative</view>
@@ -19,7 +19,7 @@
 				Web3.0 Decentralized
 			</view>
 			<view class="">
-				Social Network Proto
+				Social Network Protocol
 			</view>
 		</view>
 		<view class="btn" @click="handleStart">
@@ -28,7 +28,7 @@
 		<view class="ok" style="">
 			Join our Community to enroll in Beta Test NOW !!!
 		</view>
-		<uni-link style="color:#29DAD7;font-size:18px;margin-top: 20rpx;" href="http://baidu.com" text="">discord.gg/4smYK9yeHs</uni-link>
+		<uni-link style="color:#29DAD7;font-size:18px;margin-top: 20rpx;" href="http://discord.gg/4smYK9yeHs" text="">discord.gg/4smYK9yeHs</uni-link>
 	</view>
 </template>
 

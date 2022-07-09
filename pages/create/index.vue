@@ -23,7 +23,7 @@
 				</view>
 				<image class="icon" src="../../static/1.png" mode=""></image>
 			</view>
-			<input class="creat-input" placeholder="NAME" type="text" v-model="name" />
+			<input class="creat-input" placeholder="Name" type="text" v-model="name" />
 			<view class="title">
 				<view class="">
 					Email
@@ -33,7 +33,7 @@
 			<view class="tip">
 				For us to work with you on sending your NFT to your wallet
 			</view>
-			<input class="creat-input" placeholder="EMAIL" type="text" v-model="email" />
+			<input class="creat-input" placeholder="Email" type="text" v-model="email" />
 			<view class="title">
 				<view class="">
 					Wallet Address <text class="tip" style="margin-left: 10px;">(optional)</text>
