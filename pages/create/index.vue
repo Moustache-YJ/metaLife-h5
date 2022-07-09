@@ -159,6 +159,9 @@
 						this.$refs.uToast.show({
 							message: 'create NFT successfully '
 						})
+						uni.navigateBack({
+							delta:1
+						})
 					} else {
 						this.$refs.uToast.show({
 							message: 'create NFT failly'
