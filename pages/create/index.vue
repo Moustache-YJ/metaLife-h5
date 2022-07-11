@@ -67,7 +67,8 @@
 				email: "",
 				photo: "",
 				wallet: "",
-				fileList: []
+				fileList: [],
+				timer:null
 			}
 		},
 		computed: {
@@ -81,6 +82,9 @@
 			} = uni.getSystemInfoSync()
 			this.uploadWidth = windowWidth - 40
 			console.log(this.$BASE_URL)
+		},
+		onUnload(){
+			clearTimeout(this.timer)
 		},
 		methods: {
 			handleBack() {
@@ -120,7 +124,7 @@
 			
 			},
 			handleCreate() {
-				let reg = /[a-zA-Z0-9]+([-_.][A-Za-zd]+)*@([a-zA-Z0-9]+[-.])+[A-Za-zd]{2,5}$/
+				let reg = /[a-zA-Z0-9]+([-_.][A-Za-zd]+)*@([a-zA-Z0-9]+[-.])+[A-Za-zd]{2,8}$/
 				let timestamp = new Date().getTime()
 				if (!this.photo) {
 					this.$refs.uToast.show({
@@ -140,7 +144,6 @@
 					})
 					return
 				}
-				console.log(this.email)
 				if (!reg.test(this.email)) {
 					this.$refs.uToast.show({
 						message: 'email error'
@@ -170,9 +173,11 @@
 						this.$refs.uToast.show({
 							message: 'create NFT successfully '
 						})
-						uni.navigateBack({
-							delta: 1
-						})
+						this.timer = setTimeout(()=>{
+							uni.navigateBack({
+								delta: 1
+							})
+						},2000)
 					} else {
 						this.$refs.uToast.show({
 							message: 'create NFT failly'
