@@ -4,7 +4,7 @@
 		<view class="lap"></view>
 		<view class="flex-col" style="margin-top: 20px;">
 			<view class="">7.14 9:00 <text class="c-dad7">AM</text> - 7.14 5:00<text class="c-dad7">PM</text></view>
-			<view class="" style="margin-top:5px">滨海湾金沙会展中心</view>
+			<view class="" style="margin-top:5px">新加坡-滨海湾金沙会展中心</view>
 		</view>
 		<view class="flex-col info-name">
 			<view class="">Commemorative</view>
